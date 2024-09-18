@@ -7,17 +7,18 @@ export default function Jokes() {
     <section>
       <div className='flex'>
         {/* SETUP */}
-        <h2>
+        <p className='setup'>
           What do you call a fashionable lawn statue with an excellent sense of rhythmn?
-        </h2>
+        </p>
       </div>
       <div>
         {/* PUNCHLINE */}
         <p className='punchline'>
-          A metro-gnome
+        😅A metro-gnome🤣
         </p>
-        <button>Get Joke</button>
+        {/* <button>Get Joke</button> */}
       </div>
+      <button className='reset'></button>
     </section>
   )
 }
