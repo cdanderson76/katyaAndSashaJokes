@@ -59,6 +59,7 @@ h1 {
 }
 
 .punchline {
+  width: 400px;
   margin-top: 20px;
   font-size: 17px;
   font-weight: 500;
