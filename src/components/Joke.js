@@ -4,34 +4,50 @@ export default function Jokes() {
 
   const [ joke, setJoke ] = useState('');
   const [ response, setResponse ] = useState('');
+  const [ show, setShow ] = useState(false);
+
+  async function getJoke() {
+    const resp = await fetch('https://official-joke-api.appspot.com/random_joke');
+    const data = await resp.json();
+    setJoke(data.setup);
+    setResponse(data.punchline);
+  }
 
   useEffect(() => {
-    async function getJoke() {
-      const resp = await fetch('https://official-joke-api.appspot.com/random_joke');
-      const data = await resp.json();
-      setJoke(data.setup);
-      setResponse(data.punchline);
-    } 
     getJoke();
   }, [])
 
+  function showJoke() {
+    setShow(prev => !prev);
+  }
+
+  function Reset() {
+    setShow(false);
+    getJoke();
+  }
+
   return (
 
-    <section>
+    <section className='flex'>
       <div className='flex'>
         {/* SETUP */}
         <p className='setup'>
           {joke}
         </p>
       </div>
-      <div>
+      <div className='flex'>
         {/* PUNCHLINE */}
-        <p className='punchline'>
-        😅{response}🤣
-        </p>
-        {/* <button>Get Joke</button> */}
+        <div className='punchline'>
+           <p>{ show ? `😹 ${response} 🙀` : null }</p>
+        </div>
+        <button onClick={showJoke}>Get Joke 🥁</button>
       </div>
-      <button className='reset'></button>
+
+      <div className='button-row'>
+        <button className='reset circle-button' onClick={Reset}></button>
+        <button className='darkIcon circle-button'>🌛</button>
+      </div>
+
     </section>
   )
 }

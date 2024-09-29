@@ -21,7 +21,9 @@ export default function Footer() {
     cat8
   ];
 
-  const randomNumber = Math.floor(Math.random() * catsArray.length)
+  const randomNumber = Math.floor(Math.random() * catsArray.length);
+  const date = new Date().toLocaleDateString();
+  console.log(date);
 
   return (
     <footer>
@@ -30,7 +32,7 @@ export default function Footer() {
       <div className=''>
         {/* <hr className='border-hr'/> */}
       </div>
-      <p className='date'>September 17, 2024</p>
+      <p className='date'>Today's date: {date}</p>
     </footer>
   )
 }
