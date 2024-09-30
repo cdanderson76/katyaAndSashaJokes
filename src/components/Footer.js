@@ -22,16 +22,12 @@ export default function Footer() {
   ];
 
   const randomNumber = Math.floor(Math.random() * catsArray.length);
+  const catImage = catsArray[randomNumber];
   const date = new Date().toLocaleDateString();
-  console.log(date);
 
   return (
     <footer>
-      {/* <div className='cat-pic'></div> */}
-      <img src={catsArray[randomNumber]} className='cat-pic' alt='cat sitting on couch' />
-      <div className=''>
-        {/* <hr className='border-hr'/> */}
-      </div>
+      <img src={catImage} className='cat-pic' alt='cat doing poses' />
       <p className='date'>Today's date: {date}</p>
     </footer>
   )
